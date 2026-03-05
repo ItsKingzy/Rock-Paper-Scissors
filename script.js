@@ -92,10 +92,27 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-// Choices
-const humanChoice = getHumanChoice();  // Fetch human choice
-const computerChoice = getComputerChoice();  // Fetch computer choice
-playRound(humanChoice, computerChoice);
+// Play game
+function playGame() {
+    while ((humanScore < 3) && (computerScore < 3)) {
+        const humanChoice = getHumanChoice();  // Fetch human choice
+        const computerChoice = getComputerChoice();  // Fetch computer choice
+        playRound(humanChoice, computerChoice);
 
-// Play game//
-//play
+        // Current Scores
+        console.log("Current Scores:");
+        console.log("\t- Your Score: " + humanScore);
+        console.log("\t- Computer Score: " + computerScore);
+        console.log("\n");
+    }
+
+    // Total Scores
+    if (humanScore > computerScore) {
+        console.log("You Won :)");
+    } else {
+        console.log("You Lost :(");
+    }
+}
+
+// Start Game
+playGame();
