@@ -1,7 +1,7 @@
-// console.log("Hello world");
-
 // Set array of Rock Paper Scissors
 const rps = ["rock", "paper", "scissors"]
+let humanScore = 0;  // Init val of humanScore
+let computerScore = 0;  // Init val of computerScore
 
 // Computer choice
 function getComputerChoice() {
@@ -34,19 +34,49 @@ function getHumanChoice() {
     return response;
 }
 
-let humanScore = 0;  // Init val of humanScore
-let computerScore = 0;  // Init val of computerScore
-
+// Play 1 Round
 function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice()) {
-    // Human chose rock
+    // Consts for prompt instead of repeating code
+    const win = `You win! ${humanChoice} beats ${computerChoice}`;
+    const lose = `You win! ${computerChoice} beats ${humanChoice}`;
+    
+    // If it's a draw
     if (humanChoice === computerChoice) {
         console.log("Draw, play again");
         return
     }
+
+    // Human chooses rock
     if (humanChoice === "rock") {
+        // Win condition first
+        if (computerChoice === "scissors") {
+            console.log(win);
+        // Lose condition second
+        } else {
+            console.log(lose)
+        }
+    }
+
+    // Human chooses paper
+    if (humanChoice === "paper") {
+        // Win condition first
+        if (computerChoice === "rock") {
+            console.log(win);
+        // Lose condition second
+        } else {
+            console.log(lose);
+        }
+    }
+
+    // Human chooses scissors
+    if (humanChoice === "scissors") {
+        // Win condition first
         if (computerChoice === "paper") {
-            console.log();
-        } else
+            console.log(win);
+        // Lose condition second
+        } else {
+            console.log(lose);
+        }
     }
 
 }
