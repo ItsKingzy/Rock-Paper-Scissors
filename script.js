@@ -34,18 +34,15 @@ function getHumanChoice() {
     return response;
 }
 
-const humanChoice = getHumanChoice();  // Fetch human choice
-const computerChoice = getComputerChoice();  // Fetch computer choice
-
 // Play a Round
 function playRound(humanChoice, computerChoice) {
     // Consts for prompt instead of repeating code
     const win = `You win! ${humanChoice} beats ${computerChoice}`;
-    const lose = `You win! ${computerChoice} beats ${humanChoice}`;
+    const lose = `You lose! ${computerChoice} beats ${humanChoice}`;
     
     // If it's a draw
     if (humanChoice === computerChoice) {
-        console.log("Draw, play again");
+        console.log("Draw, please play again");
         return
     }
 
@@ -94,3 +91,11 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 }
+
+// Choices
+const humanChoice = getHumanChoice();  // Fetch human choice
+const computerChoice = getComputerChoice();  // Fetch computer choice
+playRound(humanChoice, computerChoice);
+
+// Play game//
+//play
