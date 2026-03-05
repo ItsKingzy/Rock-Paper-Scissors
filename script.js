@@ -34,8 +34,11 @@ function getHumanChoice() {
     return response;
 }
 
-// Play 1 Round
-function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerChoice()) {
+const humanChoice = getHumanChoice();  // Fetch human choice
+const computerChoice = getComputerChoice();  // Fetch computer choice
+
+// Play a Round
+function playRound(humanChoice, computerChoice) {
     // Consts for prompt instead of repeating code
     const win = `You win! ${humanChoice} beats ${computerChoice}`;
     const lose = `You win! ${computerChoice} beats ${humanChoice}`;
@@ -51,9 +54,13 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
         // Win condition first
         if (computerChoice === "scissors") {
             console.log(win);
+            humanScore++; 
+            return
         // Lose condition second
         } else {
-            console.log(lose)
+            console.log(lose);
+            computerScore++;
+            return
         }
     }
 
@@ -62,9 +69,13 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
         // Win condition first
         if (computerChoice === "rock") {
             console.log(win);
+            humanScore++; 
+            return
         // Lose condition second
         } else {
             console.log(lose);
+            computerScore++;
+            return
         }
     }
 
@@ -73,10 +84,13 @@ function playRound(humanChoice = getHumanChoice(), computerChoice = getComputerC
         // Win condition first
         if (computerChoice === "paper") {
             console.log(win);
+            humanScore++; 
+            return
         // Lose condition second
         } else {
             console.log(lose);
+            computerScore++;
+            return
         }
     }
-
 }
