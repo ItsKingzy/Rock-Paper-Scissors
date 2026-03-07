@@ -21,15 +21,12 @@ function getComputerChoice() {
 
 // Human choice
 function getHumanChoice() {
-    // Fetch user input for the first time (Either Rock, Paper, or Scissors)
-    let response = prompt("Enter either 'Rock', 'Paper', or 'Scissors'");
-    response = response.toLowerCase().trim();
-
-    // Run a while loop until user enters the correct word
-    while (!rps.includes(response)) {
+    // Run a do-while loop until user enters the correct word
+    do {
+        // Fetch user input for the first time (Either Rock, Paper, or Scissors)
         response = prompt("Please enter either 'Rock', 'Paper', or 'Scissors'");
         response = response.toLowerCase().trim();
-    }
+    } while (!rps.includes(response));
 
     return response;
 }
