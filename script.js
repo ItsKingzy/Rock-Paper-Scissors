@@ -3,6 +3,26 @@ const rps = ["rock", "paper", "scissors"]
 let humanScore = 0;  // Init val of humanScore
 let computerScore = 0;  // Init val of computerScore
 
+// Access the body of HTML file
+const body = document.querySelector("body");
+
+// Adding Rock Button
+const rock = document.createElement("button");
+rock.textContent = "Rock";
+body.appendChild(rock);    
+
+// Adding Paper button
+const paper = document.createElement("button");
+paper.textContent = "Paper";
+body.appendChild(paper);
+
+// Adding Scissors button
+const scissors = document.createElement("button");
+scissors.textContent = "Scissors";
+body.appendChild(scissors);
+
+
+
 // Computer choice
 function getComputerChoice() {
     let choice = Math.round(Math.random() * 3);
@@ -19,6 +39,8 @@ function getComputerChoice() {
     }
 }
 
+
+
 // Human choice
 function getHumanChoice() {
     // Run a do-while loop until user enters the correct word
@@ -30,6 +52,8 @@ function getHumanChoice() {
 
     return response;
 }
+
+
 
 // Play a Round
 function playRound(humanChoice, computerChoice) {
@@ -89,56 +113,45 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+
+
 // Play game
 function playGame() {
-    // while ((humanScore < 3) && (computerScore < 3)) {
-    //     const humanChoice = getHumanChoice();  // Fetch human choice
-    //     const computerChoice = getComputerChoice();  // Fetch computer choice
-    //     playRound(humanChoice, computerChoice);
+    while ((humanScore < 5) && (computerScore < 5)) {
+        // Fetch computer choice
+        const computerChoice = getComputerChoice();
 
-    //     // Current Scores
-    //     console.log("Current Scores:");
-    //     console.log("\t- Your Score: " + humanScore);
-    //     console.log("\t- Computer Score: " + computerScore);
-    //     console.log("\n");
-    // }
+        // Player chooses rock
+        rock.addEventListener("click", () => {
+            playRound("rock", computerChoice)
+        });
+        // Player chooses paper
+        paper.addEventListener("click", () => {
+            playRound("paper", computerChoice)
+        });
+        // Player chooses scissors
+        scissors.addEventListener("click", () => {
+            playRound("scissors", computerChoice)
+        });
 
-    // const humanChoice = getHumanChoice();  // Fetch human choice
-    // const computerChoice = getComputerChoice();  // Fetch computer choice
-    // playRound(humanChoice, computerChoice);
+        // Current Scores
+        console.log("Current Scores:");
+        console.log("\t- Your Score: " + humanScore);
+        console.log("\t- Computer Score: " + computerScore);
+        console.log("\n");
 
-    // Current Scores
-    console.log("Current Scores:");
-    console.log("\t- Your Score: " + humanScore);
-    console.log("\t- Computer Score: " + computerScore);
-    console.log("\n");
-
-    // Total Scores
-    if (humanScore > computerScore) {
-        console.log("You Won :)");
-    } else {
-        console.log("You Lost :(");
+        // Total Scores
+        if (humanScore > computerScore) {
+            console.log("You Won :)");
+        } else {
+            console.log("You Lost :(");
+        }
     }
 }
 
 
-// Access the body of HTML file
-const body = document.querySelector("body");
+function 
 
-// Rock Button
-const rock = document.createElement("button");
-rock.textContent = "Rock";
-body.appendChild(rock);    
-
-// Paper button
-const paper = document.createElement("button");
-paper.textContent = "Paper";
-body.appendChild(paper);
-
-// Scissors button
-const scissors = document.createElement("button");
-scissors.textContent = "Scissors";
-body.appendChild(scissors);
 
 // Start Game
 playGame();
