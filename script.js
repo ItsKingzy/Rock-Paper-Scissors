@@ -103,9 +103,9 @@ function playGame() {
     //     console.log("\n");
     // }
 
-    const humanChoice = getHumanChoice();  // Fetch human choice
-    const computerChoice = getComputerChoice();  // Fetch computer choice
-    playRound(humanChoice, computerChoice);
+    // const humanChoice = getHumanChoice();  // Fetch human choice
+    // const computerChoice = getComputerChoice();  // Fetch computer choice
+    // playRound(humanChoice, computerChoice);
 
     // Current Scores
     console.log("Current Scores:");
@@ -120,6 +120,25 @@ function playGame() {
         console.log("You Lost :(");
     }
 }
+
+
+// Access the body of HTML file
+const body = document.querySelector("body");
+
+// Rock Button
+const rock = document.createElement("button");
+rock.textContent = "Rock";
+body.appendChild(rock);    
+
+// Paper button
+const paper = document.createElement("button");
+paper.textContent = "Paper";
+body.appendChild(paper);
+
+// Scissors button
+const scissors = document.createElement("button");
+scissors.textContent = "Scissors";
+body.appendChild(scissors);
 
 // Start Game
 playGame();
