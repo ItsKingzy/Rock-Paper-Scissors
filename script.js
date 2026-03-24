@@ -126,7 +126,7 @@ function updateScoreDisplay() {
 (humanScore < 5) && (computerScore < 5)
 
     // Total Scores
-    if ((humanScore + computerScore) >= 10) {
+    if (humanScore === 5 || computerScore === 5) {
         if (humanScore > computerScore) {
             console.log("You Won :)");
             // Add a Update Button State function
