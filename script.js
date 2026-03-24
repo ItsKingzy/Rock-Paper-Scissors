@@ -115,43 +115,57 @@ function playRound(humanChoice, computerChoice) {
 
 
 
-// Play game
-function playGame() {
-    while ((humanScore < 5) && (computerScore < 5)) {
-        // Fetch computer choice
-        const computerChoice = getComputerChoice();
+// Update the scoreboard of the game
+function updateScoreDisplay() {
+    // Current Scores
+    console.log("Current Scores:");
+    console.log("\t- Your Score: " + humanScore);
+    console.log("\t- Computer Score: " + computerScore);
+    console.log("\n");
+    
+(humanScore < 5) && (computerScore < 5)
 
-        // Player chooses rock
-        rock.addEventListener("click", () => {
-            playRound("rock", computerChoice)
-        });
-        // Player chooses paper
-        paper.addEventListener("click", () => {
-            playRound("paper", computerChoice)
-        });
-        // Player chooses scissors
-        scissors.addEventListener("click", () => {
-            playRound("scissors", computerChoice)
-        });
-
-        // Current Scores
-        console.log("Current Scores:");
-        console.log("\t- Your Score: " + humanScore);
-        console.log("\t- Computer Score: " + computerScore);
-        console.log("\n");
-
-        // Total Scores
+    // Total Scores
+    if ((humanScore + computerScore) >= 10) {
         if (humanScore > computerScore) {
             console.log("You Won :)");
+            // Add a Update Button State function
         } else {
             console.log("You Lost :(");
+            // Add a Update Button State function
         }
     }
+    
 }
 
 
-function 
+
+// Play game
+function playGame(humanChoice) {
+    // Fetch computer choice
+    const computerChoice = getComputerChoice();
+
+    // Play a round
+    playRound(humanChoice, computerChoice);
+
+    // Update the current score
+    updateScoreDisplay();
+}
 
 
-// Start Game
-playGame();
+
+// Player chooses rock
+rock.addEventListener("click", () => {
+    // Start game with human choice as rock
+    playGame("rock");
+});
+// Player chooses paper
+paper.addEventListener("click", () => {
+    // Start game with human choice as paper
+    playGame("paper");
+});
+// Player chooses scissors
+scissors.addEventListener("click", () => {
+    // Start game with human choice as scissors
+    playGame("scissors");
+});
