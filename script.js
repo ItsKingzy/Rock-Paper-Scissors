@@ -21,6 +21,11 @@ const scissors = document.createElement("button");
 scissors.textContent = "Scissors";
 body.appendChild(scissors);
 
+// Add a div for display points
+const gameStatus = document.createElement("div");
+gameStatus.setAttribute("style", "display: flex; padding: 40px; background-color: grey; border-radius: 10px;");
+body.appendChild(gameStatus);
+
 
 
 // Computer choice
@@ -126,7 +131,7 @@ function updateScoreDisplay() {
 (humanScore < 5) && (computerScore < 5)
 
     // Total Scores
-    if (humanScore === 5 || computerScore === 5) {
+    if (humanScore >= 5 || computerScore >= 5) {
         if (humanScore > computerScore) {
             console.log("You Won :)");
             // Add a Update Button State function
@@ -155,17 +160,29 @@ function playGame(humanChoice) {
 
 
 // Player chooses rock
-rock.addEventListener("click", () => {
-    // Start game with human choice as rock
-    playGame("rock");
+rock.addEventListener("click", (event) => {
+    if (humanScore >= 5 || computerScore >= 5) {
+        event.preventDefault()
+    } else {
+        // Start game with human choice as rock
+        playGame("rock");
+    }
 });
 // Player chooses paper
-paper.addEventListener("click", () => {
-    // Start game with human choice as paper
-    playGame("paper");
+paper.addEventListener("click", (event) => {
+    if (humanScore >= 5 || computerScore >= 5) {
+        event.preventDefault()
+    } else {
+        // Start game with human choice as paper
+        playGame("paper");
+    }
 });
 // Player chooses scissors
-scissors.addEventListener("click", () => {
-    // Start game with human choice as scissors
-    playGame("scissors");
+scissors.addEventListener("click", (event) => {
+    if (humanScore >= 5 || computerScore >= 5) {
+        event.preventDefault()
+    } else {
+        // Start game with human choice as scissors
+        playGame("scissors");
+    }
 });
