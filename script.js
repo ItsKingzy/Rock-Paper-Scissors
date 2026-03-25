@@ -134,10 +134,10 @@ function updateScoreDisplay() {
     if (humanScore >= 5 || computerScore >= 5) {
         if (humanScore > computerScore) {
             console.log("You Won :)");
-            // Add a Update Button State function
+            // Add a Play again button + play again function
         } else {
             console.log("You Lost :(");
-            // Add a Update Button State function
+            // Add a Play again button + play again function
         }
     }
     
