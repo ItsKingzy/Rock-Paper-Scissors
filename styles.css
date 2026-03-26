@@ -14,8 +14,9 @@
 button {
     padding: 0;
     border: 0;
-    transition: transform 0.3s;
-    transition: box-shadow 2s;
+    transition: 
+        box-shadow 0.2s ease-out,
+        transform 0.2s ease-out;
 }
 
 button:hover{
@@ -24,4 +25,7 @@ button:hover{
     backdrop-filter: blur(1000px);
     transform: translateY(-30px);
     box-shadow: 0 0 70px 30px #fff5cb;
+    transition: 
+        transform 0.1s ease-in,
+        box-shadow 0.1s ease-in;
 }
