@@ -12,6 +12,9 @@ const paper = document.querySelector("#paper");
 // Querying Scissors Button
 const scissors = document.querySelector("#scissors");
 
+// Query scoreboard div
+const scoreboard = document.querySelector("#scoreboard");
+
 
 
 // Computer choice
