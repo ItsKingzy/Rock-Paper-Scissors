@@ -1,0 +1,27 @@
+#container {
+    display: flex;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    justify-content: space-around;
+    gap: 40px;
+
+}
+
+button {
+    padding: 0;
+    border: 0;
+    transition: transform 0.3s;
+    transition: box-shadow 2s;
+}
+
+button:hover{
+    background-color: rgba(162, 156, 79, 0.544);
+    border-color: transparent;
+    backdrop-filter: blur(1000px);
+    transform: translateY(-30px);
+    box-shadow: 0 0 70px 30px #fff5cb;
+}
