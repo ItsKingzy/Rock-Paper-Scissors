@@ -3,28 +3,14 @@ const rps = ["rock", "paper", "scissors"]
 let humanScore = 0;  // Init val of humanScore
 let computerScore = 0;  // Init val of computerScore
 
-// Access the body of HTML file
-const body = document.querySelector("body");
-
-// Adding Rock Button
-const rock = document.createElement("button");
-rock.textContent = "Rock";
-body.appendChild(rock);    
-
-// Adding Paper button
-const paper = document.createElement("button");
-paper.textContent = "Paper";
-body.appendChild(paper);
-
-// Adding Scissors button
-const scissors = document.createElement("button");
-scissors.textContent = "Scissors";
-body.appendChild(scissors);
-
-// Add a div for display points
-const gameStatus = document.createElement("div");
-gameStatus.setAttribute("style", "display: flex; padding: 40px; background-color: grey; border-radius: 10px;");
-body.appendChild(gameStatus);
+// Query buttons div
+const buttons = document.querySelector("#buttons");
+// Querying Rock Button
+const rock = document.querySelector("#rock");   
+// Querying Paper Button
+const paper = document.querySelector("#paper");
+// Querying Scissors Button
+const scissors = document.querySelector("#scissors");
 
 
 
