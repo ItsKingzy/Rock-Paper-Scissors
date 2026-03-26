@@ -140,7 +140,6 @@ function updateScoreDisplay() {
             // Add a Play again button + play again function
         }
     }
-    
 }
 
 
