@@ -18,7 +18,9 @@ body {
 
 .container {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
+    max-width: 1024;
 }
 
 #buttons {
@@ -26,7 +28,12 @@ body {
     flex-direction: row;
     background-color: transparent;
     justify-content: center;
-    gap: 100px;
+    max-width: 1024px;
+    margin: auto;
+    width: 100%;
+    gap: 80px;
+    box-sizing: border-box;
+    padding: 0 132px 0 132px;
 }
 
 button img {
@@ -35,6 +42,7 @@ button img {
     display: block;
     /* Can resize img/button */
     max-width: 200px;
+    min-width: 100px;
     width: 100%;
     
 }
