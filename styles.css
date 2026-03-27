@@ -1,23 +1,42 @@
+body {
+    background-color: black;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+#title img {
+    flex: 1 1 auto;
+    max-width: 1024px;
+    width: 100%;
+}
+
+
+
+
 .container {
     display: flex;
-    flex: 1 1 0;
+    flex-direction: column;
 }
 
 #buttons {
     display: flex;
-    flex: 1 1 0;
     flex-direction: row;
     background-color: transparent;
-    justify-content: space-around;
-    gap: 40px;
+    justify-content: center;
+    gap: 100px;
 }
 
 button img {
+    flex: 1 1 auto;
     /* Used to remove line below button */
     display: block;
     /* Can resize img/button */
-    max-width: 100%;
-    height: auto;
+    max-width: 200px;
+    width: 100%;
+    
 }
 
 button {
@@ -33,6 +52,7 @@ button:hover{
     border-color: transparent;
     backdrop-filter: blur(1000px);
     box-shadow: 0 0 70px 30px #fff5cb;
+    transform: translateY(-20px);
     transition: 
         transform 0.1s ease-in,
         box-shadow 0.1s ease-in;
