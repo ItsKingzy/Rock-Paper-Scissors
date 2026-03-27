@@ -1,5 +1,11 @@
 body {
     background-color: black;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    /* 400-700 font weight */
+    /* font-weight: ; */
+    font-style: normal;
+    font-size: 32px;
 }
 
 .container {
@@ -29,6 +35,7 @@ body {
     padding: 40px 128px 100px 128px;
     margin: auto;
     box-sizing: border-box;
+    /* background-image: url(./img/oak-sign.png); */
 }
 
 #scoreboard img {
@@ -36,6 +43,15 @@ body {
     max-width: 512px;
     min-width: 445px;
     width: 100%;
+}
+
+#scoreboard .score-title {
+    display: flex;
+    flex: 1 1 auto;
+    padding-top: 32px;
+    /* Makes position over the image */
+    position: absolute;
+
 }
 
 
