@@ -15,12 +15,12 @@ body {
     max-width: 1024;
 }
 
-#title {
+#webpage-title {
     display: flex;
     justify-content: center;
 }
 
-#title img {
+#webpage-title img {
     flex: 1 1 auto;
     max-width: 1024px;
     width: 100%;
