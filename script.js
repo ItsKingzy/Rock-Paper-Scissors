@@ -118,9 +118,9 @@ function updateScoreDisplay() {
     console.log("\n");
 
     // Current Score update
-    const updateHumanScore = document.querySelector("#player-score .score");
+    const updateHumanScore = document.querySelector("#player-scoreboard .score");
     updateHumanScore.textContent = humanScore;
-    const updateComputerScore = document.querySelector("#computer-score .score");
+    const updateComputerScore = document.querySelector("#computer-scoreboard .score");
     updateComputerScore.textContent = computerScore;
 
 
