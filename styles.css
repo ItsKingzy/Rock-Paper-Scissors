@@ -63,7 +63,13 @@ body {
     padding-top: 100px;
 }
 
-
+#scores #player-score,
+#scores #computer-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
 
 
 
