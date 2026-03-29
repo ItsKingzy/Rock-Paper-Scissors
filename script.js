@@ -116,8 +116,6 @@ function updateScoreDisplay() {
     console.log("\t- Your Score: " + humanScore);
     console.log("\t- Computer Score: " + computerScore);
     console.log("\n");
-    
-(humanScore < 5) && (computerScore < 5)
 
     // Total Scores
     if (humanScore >= 5 || computerScore >= 5) {
