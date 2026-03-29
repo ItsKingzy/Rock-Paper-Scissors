@@ -54,12 +54,19 @@ body {
     width: 100%;
 }
 
-#game-state .score-title {
+
+
+#game-state .score-title,
+#game-state #round-results {
     display: flex;
     flex: 1 1 auto;
     padding-top: 32px;
     /* Makes position over the image */
     position: absolute;
+}
+
+#game-state .score-title {
+    padding-top: 190px;
 }
 
 

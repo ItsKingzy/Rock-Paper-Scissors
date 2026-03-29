@@ -15,6 +15,9 @@ const scissors = document.querySelector("#scissors");
 // Query scoreboard div
 const scoreboard = document.querySelector("#scoreboard");
 
+// Results div for one round
+const roundResults = document.querySelector("#round-results");
+
 
 
 // Computer choice
@@ -58,6 +61,7 @@ function playRound(humanChoice, computerChoice) {
     // If it's a draw
     if (humanChoice === computerChoice) {
         console.log("Draw, please play again");
+        roundResults.textContent = "Draw, please play again";
         return
     }
 
@@ -66,11 +70,13 @@ function playRound(humanChoice, computerChoice) {
         // Win condition first
         if (computerChoice === "scissors") {
             console.log(win);
+            roundResults.textContent = win;
             humanScore++; 
             return
         // Lose condition second
         } else {
             console.log(lose);
+            roundResults.textContent = lose;
             computerScore++;
             return
         }
@@ -81,11 +87,13 @@ function playRound(humanChoice, computerChoice) {
         // Win condition first
         if (computerChoice === "rock") {
             console.log(win);
+            roundResults.textContent = win;
             humanScore++; 
             return
         // Lose condition second
         } else {
             console.log(lose);
+            roundResults.textContent = lose;
             computerScore++;
             return
         }
@@ -96,11 +104,13 @@ function playRound(humanChoice, computerChoice) {
         // Win condition first
         if (computerChoice === "paper") {
             console.log(win);
+            roundResults.textContent = win;
             humanScore++; 
             return
         // Lose condition second
         } else {
             console.log(lose);
+            roundResults.textContent = lose;
             computerScore++;
             return
         }
@@ -128,9 +138,11 @@ function updateScoreDisplay() {
     if (humanScore >= 5 || computerScore >= 5) {
         if (humanScore > computerScore) {
             console.log("You Won :)");
+            roundResults.textContent = "You Won :D"
             // Add a Play again button + play again function
         } else {
             console.log("You Lost :(");
+            roundResults.textContent = "You Lost ;-;"
             // Add a Play again button + play again function
         }
     }
