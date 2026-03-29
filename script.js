@@ -111,11 +111,18 @@ function playRound(humanChoice, computerChoice) {
 
 // Update the scoreboard of the game
 function updateScoreDisplay() {
-    // Current Scores
+    // Current Scores (concole)
     console.log("Current Scores:");
     console.log("\t- Your Score: " + humanScore);
     console.log("\t- Computer Score: " + computerScore);
     console.log("\n");
+
+    // Current Score update
+    const updateHumanScore = document.querySelector("#player-score .score");
+    updateHumanScore.textContent = humanScore;
+    const updateComputerScore = document.querySelector("#computer-score .score");
+    updateComputerScore.textContent = computerScore;
+
 
     // Total Scores
     if (humanScore >= 5 || computerScore >= 5) {
