@@ -15,7 +15,6 @@ body {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    max-width: 1024;
 }
 
 #webpage-title {
@@ -30,7 +29,13 @@ body {
 }
 
 
-#scoreboard {
+#all-stats {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#game-state {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,17 +45,16 @@ body {
     margin: auto;
     margin-bottom: 0px;
     box-sizing: border-box;
-    /* background-image: url(./img/oak-sign.png); */
 }
 
-#scoreboard img {
+#game-state img {
     flex: 1 1 auto;
     max-width: 512px;
     min-width: 512px;
     width: 100%;
 }
 
-#scoreboard .score-title {
+#game-state .score-title {
     display: flex;
     flex: 1 1 auto;
     padding-top: 32px;
@@ -58,28 +62,28 @@ body {
     position: absolute;
 }
 
-#scores {
+
+#scoreboard {
     display: flex;
-    justify-content: space-evenly;
-    width: 786px;
-    /* Makes position over the image */
-    position: absolute;
-    padding-top: 100px;
+    justify-content: center;
+    gap: 32px;
 }
 
-#scores #player-score,
-#scores #computer-score {
+#player-scoreboard,
+#computer-scoreboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.stats {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    transform: translateY(-90px);
+    font-weight: 600;
 }
 
 
-#scoreboard-test {
-    display: flex;
-    justify-content: center;
-}
 
 
 #buttons {
