@@ -36,8 +36,9 @@ body {
     align-items: center;
     max-width: 1024px;
     width: 100%;
-    padding: 40px 128px 100px 128px;
+    padding: 40px 128px 0px 128px;
     margin: auto;
+    margin-bottom: 0px;
     box-sizing: border-box;
     /* background-image: url(./img/oak-sign.png); */
 }
@@ -75,7 +76,10 @@ body {
 }
 
 
-
+#scoreboard-test {
+    display: flex;
+    justify-content: center;
+}
 
 
 #buttons {
