@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: lightgray;
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
     /* 400-700 font weight */
@@ -42,7 +42,7 @@ body {
 #scoreboard img {
     flex: 1 1 auto;
     max-width: 512px;
-    min-width: 445px;
+    min-width: 512px;
     width: 100%;
 }
 
@@ -53,6 +53,16 @@ body {
     /* Makes position over the image */
     position: absolute;
 }
+
+#scores {
+    display: flex;
+    justify-content: space-evenly;
+    width: 786px;
+    /* Makes position over the image */
+    position: absolute;
+    padding-top: 100px;
+}
+
 
 
 
