@@ -18,6 +18,10 @@ const scoreboard = document.querySelector("#scoreboard");
 // Results div for one round
 const roundResults = document.querySelector("#round-results");
 
+// Hide reset button until game is over
+const resetButton = document.querySelector("#reset-button");
+resetButton.style.visibility = "hidden";
+
 
 
 // Computer choice
@@ -139,10 +143,12 @@ function updateScoreDisplay() {
         if (humanScore > computerScore) {
             console.log("You Won :)");
             roundResults.textContent = "You Won :D"
+            resetButton.style.visibility = "visible";
             // Add a Play again button + play again function
         } else {
             console.log("You Lost :(");
             roundResults.textContent = "You Lost ;-;"
+            resetButton.style.visibility = "visible";
             // Add a Play again button + play again function
         }
     }
