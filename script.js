@@ -18,6 +18,10 @@ const scoreboard = document.querySelector("#scoreboard");
 // Results div for one round
 const roundResults = document.querySelector("#round-results");
 
+// Score for both human and computer
+const updateHumanScore = document.querySelector("#player-scoreboard .score");
+const updateComputerScore = document.querySelector("#computer-scoreboard .score");
+
 // Hide reset button until game is over
 const resetButton = document.querySelector("#reset-button");
 resetButton.style.visibility = "hidden";
@@ -131,10 +135,8 @@ function updateScoreDisplay() {
     console.log("\t- Computer Score: " + computerScore);
     console.log("\n");
 
-    // Current Score update
-    const updateHumanScore = document.querySelector("#player-scoreboard .score");
+    // Update Score
     updateHumanScore.textContent = humanScore;
-    const updateComputerScore = document.querySelector("#computer-scoreboard .score");
     updateComputerScore.textContent = computerScore;
 
 
@@ -143,14 +145,17 @@ function updateScoreDisplay() {
         if (humanScore > computerScore) {
             console.log("You Won :)");
             roundResults.textContent = "You Won :D"
-            resetButton.style.visibility = "visible";
-            // Add a Play again button + play again function
         } else {
             console.log("You Lost :(");
             roundResults.textContent = "You Lost ;-;"
-            resetButton.style.visibility = "visible";
-            // Add a Play again button + play again function
         }
+
+        // Show reset button
+        resetButton.style.visibility = "visible";
+        // Reset game if button is clicked
+        resetButton.addEventListener("click", () => {
+            resetGame();
+        });
     }
 }
 
@@ -197,3 +202,13 @@ scissors.addEventListener("click", (event) => {
         playGame("scissors");
     }
 });
+
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    roundResults.textContent = "First to 5 wins!";
+    updateHumanScore.textContent = humanScore;
+    updateComputerScore.textContent = computerScore;
+    resetButton.style.visibility = "hidden";
+}
