@@ -40,6 +40,7 @@ body {
     flex-direction: column;
     align-items: center;
     max-width: 1024px;
+    max-height: 296px;
     width: 100%;
     padding: 40px 128px 0px 128px;
     margin: auto;
