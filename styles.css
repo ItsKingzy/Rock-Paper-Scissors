@@ -68,7 +68,7 @@ body {
 }
 
 #reset-button {
-    transform: translateY(-90px);
+    transform: translateY(-130px);
     padding: 0;
     border: 0;
 }
@@ -88,17 +88,22 @@ body {
     display: block;
 }
 
-#game-state #round-results {
+#game-state #oak-sign-header {
     display: flex;
     flex: 1 1 auto;
     padding-top: 32px;
     /* Makes position over the image */
     position: absolute;
+    font-weight: 700;
+    font-size: 40px;
 }
 
-#game-state .score-title {
-    padding-top: 190px;
+#game-state #round-results {
+    width: 300px;
+    text-align: center;
+    transform: translateY(-150px);
 }
+
 
 
 #scoreboard {

@@ -208,7 +208,7 @@ scissors.addEventListener("click", (event) => {
 function resetGame() {
     humanScore = 0;
     computerScore = 0;
-    roundResults.textContent = "First to 5 wins!";
+    roundResults.textContent = "";
     updateHumanScore.textContent = humanScore;
     updateComputerScore.textContent = computerScore;
     resetButton.style.visibility = "hidden";
