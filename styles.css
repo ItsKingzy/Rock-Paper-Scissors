@@ -1,8 +1,8 @@
 body {
-    background-image: url(./img/minecraft-mods-back.jpeg);
+    background-image: url(./img/main-bg.png), url(./img/dirt-block-bg.png);
     background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
+    background-position: center top, center bottom;
+    background-repeat: no-repeat, repeat;
     background-color: rgb(0, 101, 15);
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
