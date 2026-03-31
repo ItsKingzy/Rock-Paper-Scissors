@@ -1,14 +1,16 @@
 body {
     background-image: url(./img/minecraft-mods-back.jpeg);
-    background-size: 100% auto;
-    background-color: rgb(0, 101, 15);
+    background-size: cover;
+    background-position: center top;
     background-repeat: no-repeat;
+    background-color: rgb(0, 101, 15);
     font-family: "Pixelify Sans", sans-serif;
     font-optical-sizing: auto;
     /* 400-700 font weight */
     /* font-weight: ; */
     font-style: normal;
     font-size: 32px;
+    zoom: 0.6;
 }
 
 .container {
@@ -55,7 +57,7 @@ body {
     width: 100%;
 }
 
-
+/* Inspiration: https://codepen.io/joexmdq/pen/EOMLzg */
 #reset-button img {
     /* Used to remove line below button */
     display: block;
