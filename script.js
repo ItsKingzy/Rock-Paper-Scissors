@@ -30,17 +30,17 @@ resetButton.style.visibility = "hidden";
 
 // Computer choice
 function getComputerChoice() {
-    let choice = Math.round(Math.random() * 3);
+    let choice = Math.floor(Math.random() * 3);
 
-    if (choice === 1) {
+    if (choice === 0) {
         // console.log("rock");
-        return "rock"
-    } else if (choice === 2) {
+        return "rock";
+    } else if (choice === 1) {
         // console.log("paper");
-        return "paper"
-    } else if (choice === 3) {
+        return "paper";
+    } else if (choice === 2) {
         // console.log("scissors");
-        return "scissors"
+        return "scissors";
     }
 }
 
@@ -83,6 +83,7 @@ function playRound(humanChoice, computerChoice) {
             return
         // Lose condition second
         } else {
+            console.log(computerChoice);
             console.log(lose);
             roundResults.textContent = lose;
             computerScore++;
