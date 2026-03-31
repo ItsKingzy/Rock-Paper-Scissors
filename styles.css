@@ -94,7 +94,7 @@ body {
     padding-top: 32px;
     /* Makes position over the image */
     position: absolute;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 40px;
 }
 
@@ -170,4 +170,15 @@ body {
     transition: 
         transform 0.1s ease-in,
         box-shadow 0.1s ease-in;
+}
+
+#footer-links {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+#github {
+    display: flex;
+
 }
