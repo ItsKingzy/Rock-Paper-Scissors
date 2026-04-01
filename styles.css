@@ -192,8 +192,19 @@ body {
 #github {
     display: flex;
     gap: 10px;
+    text-decoration: none;
+    color: black;
+    transition:
+        transform 0.1s ease-out;
 }
 
 #github img {
     width: 40px;
+}
+
+/* Hover effect of github link */
+#github:hover {
+    transform: translateY(-5px);
+    transition: 
+        transform 0.1s ease-in;
 }
