@@ -13,6 +13,18 @@ body {
     zoom: 0.6;
 }
 
+/* Push the footer to the bottom */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+/* Push the footer to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
 .container {
     display: flex;
     flex: 1 1 auto;
@@ -134,9 +146,6 @@ body {
     flex-direction: row;
     background-color: transparent;
     justify-content: center;
-    max-width: 1024px;
-    margin: auto;
-    width: 100%;
     gap: 80px;
     box-sizing: border-box;
     padding: 0 132px 0 132px;
@@ -175,10 +184,16 @@ body {
 #footer-links {
     display: flex;
     flex-direction: row;
-    gap: 32px;
+    justify-content: center;
+    gap: 64px;
+    padding: 64px;
 }
 
 #github {
     display: flex;
+    gap: 10px;
+}
 
+#github img {
+    width: 40px;
 }
