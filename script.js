@@ -223,3 +223,7 @@ function buttonClickAudio() {
     let audio = new Audio("./audio/button-click.mp3");
     audio.play();
 }
+
+// Button click audio for github link
+const github = document.querySelector("#github");
+github.addEventListener("click", () => {buttonClickAudio();});
