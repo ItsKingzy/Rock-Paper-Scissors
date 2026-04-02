@@ -178,6 +178,7 @@ function playGame(humanChoice) {
 
 // Player chooses rock
 rock.addEventListener("click", (event) => {
+    buttonClickAudio();
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
     } else {
@@ -187,6 +188,7 @@ rock.addEventListener("click", (event) => {
 });
 // Player chooses paper
 paper.addEventListener("click", (event) => {
+    buttonClickAudio();
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
     } else {
@@ -196,6 +198,7 @@ paper.addEventListener("click", (event) => {
 });
 // Player chooses scissors
 scissors.addEventListener("click", (event) => {
+    buttonClickAudio();
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
     } else {
@@ -212,4 +215,11 @@ function resetGame() {
     updateHumanScore.textContent = humanScore;
     updateComputerScore.textContent = computerScore;
     resetButton.style.visibility = "hidden";
+}
+
+
+// General audio feeback for button clicks
+function buttonClickAudio() {
+    let audio = new Audio("./audio/button-click.mp3");
+    audio.play();
 }
