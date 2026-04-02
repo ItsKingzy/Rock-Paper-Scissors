@@ -155,6 +155,7 @@ function updateScoreDisplay() {
         resetButton.style.visibility = "visible";
         // Reset game if button is clicked
         resetButton.addEventListener("click", () => {
+            buttonClickAudio();
             resetGame();
         });
     }
