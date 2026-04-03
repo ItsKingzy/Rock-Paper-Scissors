@@ -36,25 +36,21 @@ const github = document.querySelector("#github");
 github.addEventListener("click", () => {buttonClickAudio(true);});
 
 // Mute audio
-let isMuted = false;
 const muteButton = document.querySelector("#audio-no-mute");
 const muteButtonImg = document.querySelector("#audio-no-mute img");
-console.log(muteButtonImg.src);
 muteButton.addEventListener("click", () => {
-    if (!isMuted) {
-        // Mute audio
+    isMuted = !isMuted;
+
+    if (isMuted) {
         muteButtonImg.src = "./img/audio-mute.png";
-        audio.volume = 0;
-        isMuted = true;
     } else {
-        // Unmute audio
         muteButtonImg.src = "./img/audio-no-mute.png";
-        audio.volume = 0.40;
-        isMuted = false;
     }
-})
 
-
+    if (currentMusicAudio) {
+        currentMusicAudio.volume = isMuted ? 0 : 0.40;
+    }
+});
 
 // Computer choice
 function getComputerChoice() {
@@ -257,33 +253,43 @@ function buttonClickAudio(isGithub) {
     audio.play();
 }
 
-// Play songs at random in the background
 const music = ["Aria Math", "Beginning 2", "Haunt Muskie", "Moog City 2"];
-function playMusic() {
-    // Play music at random
-    let musicChoice = Math.floor(Math.random() * 4);
-    let musicFile = "C418-" + music.at(musicChoice).replaceAll(" ", "-") + ".mp3";
-    let audio = new Audio("./audio/" + musicFile);
-    audio.volume = 0.40;
-    audio.play();
+let currentMusicAudio = null;
+let isMuted = false;
 
-    // Show image for the music playing
+function playMusic() {
+    let musicChoice = Math.floor(Math.random() * music.length);
+    let musicFile = "C418-" + music[musicChoice].replaceAll(" ", "-") + ".mp3";
+
+    if (currentMusicAudio) {
+        currentMusicAudio.pause();
+        currentMusicAudio.currentTime = 0;
+    }
+
+    currentMusicAudio = new Audio("./audio/" + musicFile);
+
+    currentMusicAudio.volume = isMuted ? 0 : 0.40;
+
+    currentMusicAudio.addEventListener("ended", () => {
+        playMusic();
+    });
+
+    currentMusicAudio.play();
+
+    let nowPlayingDiv = document.querySelector("#music-status");
+    let oldImg = document.querySelector(".now-playing");
+    if (oldImg) oldImg.remove();
+
     let musicImg = document.createElement("img");
-    let musicImgSrc = "C418-" + music.at(musicChoice).replaceAll(" ", "-") + ".png";
+    let musicImgSrc = "C418-" + music[musicChoice].replaceAll(" ", "-") + ".png";
     musicImg.src = "./img/" + musicImgSrc;
     musicImg.alt = "Image of the music currently playing";
-    // Add a class to the image
     musicImg.classList.add("now-playing");
-    // Query the div to place the img
-    let nowPlayingDiv = document.querySelector("#music-status");
-    // Append the img at the start of the div
+
     const audioButton = document.querySelector("#audio-no-mute");
     nowPlayingDiv.insertBefore(musicImg, audioButton);
 
-    // Style the image
     styleMusicImg();
-
-    return audio;
 }
 
 function styleMusicImg() {
@@ -299,6 +305,5 @@ function styleMusicImg() {
     )
 }
 
-const audio = playMusic();
-
-
+// Play music
+playMusic();
