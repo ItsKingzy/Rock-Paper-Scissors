@@ -25,6 +25,11 @@ const updateComputerScore = document.querySelector("#computer-scoreboard .score"
 // Hide reset button until game is over
 const resetButton = document.querySelector("#reset-button");
 resetButton.style.visibility = "hidden";
+// When reset button is clicked
+resetButton.addEventListener("click", () => {
+    buttonClickAudio(false);
+    resetGame();
+});
 
 
 
@@ -154,10 +159,6 @@ function updateScoreDisplay() {
         // Show reset button
         resetButton.style.visibility = "visible";
         // Reset game if button is clicked
-        resetButton.addEventListener("click", () => {
-            buttonClickAudio(false);
-            resetGame();
-        });
     }
 }
 
@@ -225,6 +226,7 @@ function buttonClickAudio(isGithub) {
     let audio;
     if (isGithub) {
         audio = new Audio("./audio/github-button.mp3");
+        audio.volume = 0.20;
     } else {
         audio = new Audio("./audio/button-click.mp3");
     }
