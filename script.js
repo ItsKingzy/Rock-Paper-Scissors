@@ -245,6 +245,9 @@ function playMusic() {
     let musicChoice = Math.floor(Math.random() * 4);
     let musicFile = "C418-" + music.at(musicChoice).replaceAll(" ", "-") + ".mp3";
     let audio = new Audio("./audio/" + musicFile);
+    // REMOVE LATER
+    audio.volume = 0;
+    // REMOVE LATER 
     audio.play();
 
     // Show image for the music playing
@@ -264,8 +267,15 @@ function playMusic() {
 }
 
 function styleMusicImg() {
-    let musicImg = document.querySelector(".now-playing");
+    let musicImg = document.querySelector("#music-status");
     // Add styles here
+    musicImg.setAttribute("style",
+        `
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        `
+    )
 }
 
 playMusic();
