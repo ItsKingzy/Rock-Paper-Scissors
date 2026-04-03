@@ -155,7 +155,7 @@ function updateScoreDisplay() {
         resetButton.style.visibility = "visible";
         // Reset game if button is clicked
         resetButton.addEventListener("click", () => {
-            buttonClickAudio();
+            buttonClickAudio(false);
             resetGame();
         });
     }
@@ -179,7 +179,7 @@ function playGame(humanChoice) {
 
 // Player chooses rock
 rock.addEventListener("click", (event) => {
-    buttonClickAudio();
+    buttonClickAudio(false);
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
     } else {
@@ -189,7 +189,7 @@ rock.addEventListener("click", (event) => {
 });
 // Player chooses paper
 paper.addEventListener("click", (event) => {
-    buttonClickAudio();
+    buttonClickAudio(false);
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
     } else {
@@ -199,7 +199,7 @@ paper.addEventListener("click", (event) => {
 });
 // Player chooses scissors
 scissors.addEventListener("click", (event) => {
-    buttonClickAudio();
+    buttonClickAudio(false);
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
     } else {
@@ -220,14 +220,21 @@ function resetGame() {
 
 
 // General audio feeback for button clicks
-function buttonClickAudio() {
-    let audio = new Audio("./audio/button-click.mp3");
+// isGithub (boolean) is the type of audio that will play (either for github link or all other types)
+function buttonClickAudio(isGithub) {
+    let audio;
+    if (isGithub) {
+        audio = new Audio("./audio/gihub-button.mp3");
+    } else {
+        audio = new Audio("./audio/button-click.mp3");
+    }
+    // Play the audio
     audio.play();
 }
 
 // Button click audio for github link
 const github = document.querySelector("#github");
-github.addEventListener("click", () => {buttonClickAudio();});
+github.addEventListener("click", () => {buttonClickAudio(true);});
 
 // Play songs at random in the background
 const music = ["Aria Math", "Beginning 2", "Haunt Muskie", "Moog City 2"];
