@@ -247,12 +247,23 @@ function playMusic() {
 
     // Show image for the music playing
     let musicImg = document.createElement("img");
-    let musicSrc = "C418-" + music.at(musicChoice).replaceAll(" ", "-") + ".png";
-    musicImg.src = "./img/" + musicSrc;
+    let musicImgSrc = "C418-" + music.at(musicChoice).replaceAll(" ", "-") + ".png";
+    musicImg.src = "./img/" + musicImgSrc;
     musicImg.alt = "Image of the music currently playing";
+    // Add a class to the image
+    musicImg.classList.add("now-playing");
     // Query the div to place the img
-    let nowPlayingDiv = document.querySelector("#now-playing");
+    let nowPlayingDiv = document.querySelector("#music-status");
     // Append the img at the start of the div
     nowPlayingDiv.prepend(musicImg);
+
+    // Style the image
+    styleImg(musicImgSrc);
 }
+
+function styleImg(image) {
+    let musicImg = document.querySelector(".now-playing");
+    // Add styles here
+}
+
 playMusic();
