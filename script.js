@@ -31,6 +31,29 @@ resetButton.addEventListener("click", () => {
     resetGame();
 });
 
+// Button click audio for github link
+const github = document.querySelector("#github");
+github.addEventListener("click", () => {buttonClickAudio(true);});
+
+// Mute audio
+let isMuted = false;
+const muteButton = document.querySelector("#audio-no-mute");
+const muteButtonImg = document.querySelector("#audio-no-mute img");
+console.log(muteButtonImg.src);
+muteButton.addEventListener("click", () => {
+    if (!isMuted) {
+        // Mute audio
+        muteButtonImg.src = "./img/audio-mute.png";
+        audio.volume = 0;
+        isMuted = true;
+    } else {
+        // Unmute audio
+        muteButtonImg.src = "./img/audio-no-mute.png";
+        audio.volume = 0.40;
+        isMuted = false;
+    }
+})
+
 
 
 // Computer choice
@@ -234,10 +257,6 @@ function buttonClickAudio(isGithub) {
     audio.play();
 }
 
-// Button click audio for github link
-const github = document.querySelector("#github");
-github.addEventListener("click", () => {buttonClickAudio(true);});
-
 // Play songs at random in the background
 const music = ["Aria Math", "Beginning 2", "Haunt Muskie", "Moog City 2"];
 function playMusic() {
@@ -245,9 +264,7 @@ function playMusic() {
     let musicChoice = Math.floor(Math.random() * 4);
     let musicFile = "C418-" + music.at(musicChoice).replaceAll(" ", "-") + ".mp3";
     let audio = new Audio("./audio/" + musicFile);
-    // REMOVE LATER
-    audio.volume = 0;
-    // REMOVE LATER 
+    audio.volume = 0.40;
     audio.play();
 
     // Show image for the music playing
@@ -265,6 +282,8 @@ function playMusic() {
 
     // Style the image
     styleMusicImg();
+
+    return audio;
 }
 
 function styleMusicImg() {
@@ -280,6 +299,6 @@ function styleMusicImg() {
     )
 }
 
-playMusic();
+const audio = playMusic();
 
 
