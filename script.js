@@ -258,10 +258,10 @@ function playMusic() {
     nowPlayingDiv.prepend(musicImg);
 
     // Style the image
-    styleImg(musicImgSrc);
+    styleMusicImg();
 }
 
-function styleImg(image) {
+function styleMusicImg() {
     let musicImg = document.querySelector(".now-playing");
     // Add styles here
 }
