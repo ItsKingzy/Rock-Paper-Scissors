@@ -224,7 +224,7 @@ function resetGame() {
 function buttonClickAudio(isGithub) {
     let audio;
     if (isGithub) {
-        audio = new Audio("./audio/gihub-button.mp3");
+        audio = new Audio("./audio/github-button.mp3");
     } else {
         audio = new Audio("./audio/button-click.mp3");
     }
