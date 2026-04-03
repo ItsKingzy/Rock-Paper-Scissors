@@ -239,9 +239,20 @@ github.addEventListener("click", () => {buttonClickAudio(true);});
 // Play songs at random in the background
 const music = ["Aria Math", "Beginning 2", "Haunt Muskie", "Moog City 2"];
 function playMusic() {
+    // Play music at random
     let musicChoice = Math.floor(Math.random() * 4);
     let musicFile = "C418-" + music.at(musicChoice).replaceAll(" ", "-") + ".mp3";
     let audio = new Audio("./audio/" + musicFile);
     audio.play();
+
+    // Show image for the music playing
+    let musicImg = document.createElement("img");
+    let musicSrc = "C418-" + music.at(musicChoice).replaceAll(" ", "-") + ".png";
+    musicImg.src = "./img/" + musicSrc;
+    musicImg.alt = "Image of the music currently playing";
+    // Query the div to place the img
+    let nowPlayingDiv = document.querySelector("#now-playing");
+    // Append the img at the start of the div
+    nowPlayingDiv.prepend(musicImg);
 }
 playMusic();
