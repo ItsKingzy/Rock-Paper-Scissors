@@ -43,6 +43,15 @@ body {
 }
 
 
+/* Remove button audio button background */
+#audio-no-mute {
+    background-color: transparent;
+    border: transparent;
+    padding: 0;
+}
+
+
+
 #all-stats {
     display: flex;
     flex-direction: column;
