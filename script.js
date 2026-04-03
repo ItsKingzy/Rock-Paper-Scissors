@@ -260,7 +260,8 @@ function playMusic() {
     // Query the div to place the img
     let nowPlayingDiv = document.querySelector("#music-status");
     // Append the img at the start of the div
-    nowPlayingDiv.prepend(musicImg);
+    const audioButton = document.querySelector("#audio-no-mute");
+    nowPlayingDiv.insertBefore(musicImg, audioButton);
 
     // Style the image
     styleMusicImg();
@@ -274,6 +275,7 @@ function styleMusicImg() {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        gap: 16px;
         `
     )
 }
