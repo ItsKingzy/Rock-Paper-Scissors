@@ -27,13 +27,17 @@ const resetButton = document.querySelector("#reset-button");
 resetButton.style.visibility = "hidden";
 // When reset button is clicked
 resetButton.addEventListener("click", () => {
+    startMusicOnClick();
     buttonClickAudio(false);
     resetGame();
 });
 
 // Button click audio for github link
 const github = document.querySelector("#github");
-github.addEventListener("click", () => {buttonClickAudio(true);});
+github.addEventListener("click", () => {
+    startMusicOnClick();
+    buttonClickAudio(true);
+});
 
 // Mute audio
 const muteButton = document.querySelector("#audio-no-mute");
@@ -199,6 +203,7 @@ function playGame(humanChoice) {
 
 // Player chooses rock
 rock.addEventListener("click", (event) => {
+    startMusicOnClick();
     buttonClickAudio(false);
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
@@ -209,6 +214,7 @@ rock.addEventListener("click", (event) => {
 });
 // Player chooses paper
 paper.addEventListener("click", (event) => {
+    startMusicOnClick();
     buttonClickAudio(false);
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
@@ -219,6 +225,7 @@ paper.addEventListener("click", (event) => {
 });
 // Player chooses scissors
 scissors.addEventListener("click", (event) => {
+    startMusicOnClick();
     buttonClickAudio(false);
     if (humanScore >= 5 || computerScore >= 5) {
         event.preventDefault()
@@ -276,20 +283,10 @@ function playMusic() {
 
     currentMusicAudio.play();
 
-    let nowPlayingDiv = document.querySelector("#music-status");
-    let oldImg = document.querySelector(".now-playing");
-    if (oldImg) oldImg.remove();
-
-    let musicImg = document.createElement("img");
+    let musicImg = document.querySelector(".now-playing");
     let musicImgSrc = "C418-" + music[musicChoice].replaceAll(" ", "-") + ".png";
     musicImg.src = "./img/" + musicImgSrc;
     musicImg.alt = "Image of the music currently playing";
-    musicImg.classList.add("now-playing");
-
-    const audioButton = document.querySelector("#audio-no-mute");
-    nowPlayingDiv.insertBefore(musicImg, audioButton);
-
-    styleMusicImg();
 }
 
 function styleMusicImg() {
@@ -305,5 +302,12 @@ function styleMusicImg() {
     )
 }
 
-// Play music
-playMusic();
+// Fix the auto play in browsers
+let musicStarted = false;
+function startMusicOnClick() {
+    if(!musicStarted) {
+        musicStarted = true;
+        playMusic();
+    }
+}
+document.addEventListener("click", startMusicOnClick, {once: true});
