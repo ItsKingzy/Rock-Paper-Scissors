@@ -168,12 +168,12 @@ function updateScoreDisplay() {
     console.log("\n");
 
     // Update Score
-    updateHumanScore.textContent = humanScore;
-    updateComputerScore.textContent = computerScore;
+    updateHumanScore.textContent = humanScore + "/3";
+    updateComputerScore.textContent = computerScore + "/3";
 
 
     // Total Scores
-    if (humanScore >= 5 || computerScore >= 5) {
+    if (humanScore >= 3 || computerScore >= 3) {
         if (humanScore > computerScore) {
             console.log("You Won :)");
             roundResults.textContent = "You Won :D"
@@ -208,7 +208,7 @@ function playGame(humanChoice) {
 rock.addEventListener("click", (event) => {
     startMusicOnClick();
     buttonClickAudio(false);
-    if (humanScore >= 5 || computerScore >= 5) {
+    if (humanScore >= 3 || computerScore >= 3) {
         event.preventDefault()
     } else {
         // Start game with human choice as rock
@@ -219,7 +219,7 @@ rock.addEventListener("click", (event) => {
 paper.addEventListener("click", (event) => {
     startMusicOnClick();
     buttonClickAudio(false);
-    if (humanScore >= 5 || computerScore >= 5) {
+    if (humanScore >= 3 || computerScore >= 3) {
         event.preventDefault()
     } else {
         // Start game with human choice as paper
@@ -230,7 +230,7 @@ paper.addEventListener("click", (event) => {
 scissors.addEventListener("click", (event) => {
     startMusicOnClick();
     buttonClickAudio(false);
-    if (humanScore >= 5 || computerScore >= 5) {
+    if (humanScore >= 3 || computerScore >= 3) {
         event.preventDefault()
     } else {
         // Start game with human choice as scissors
