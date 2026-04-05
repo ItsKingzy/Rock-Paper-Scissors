@@ -43,6 +43,9 @@ github.addEventListener("click", () => {
 const muteButton = document.querySelector("#audio-no-mute");
 const muteButtonImg = document.querySelector("#audio-no-mute img");
 muteButton.addEventListener("click", () => {
+    // Play button click audio
+    buttonClickAudio(false);
+        
     isMuted = !isMuted;
 
     if (isMuted) {
