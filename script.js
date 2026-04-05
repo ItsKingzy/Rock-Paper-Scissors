@@ -52,7 +52,7 @@ muteButton.addEventListener("click", () => {
     }
 
     if (currentMusicAudio) {
-        currentMusicAudio.volume = isMuted ? 0 : 0.40;
+        currentMusicAudio.muted = isMuted;
     }
 });
 
@@ -275,7 +275,8 @@ function playMusic() {
 
     currentMusicAudio = new Audio("./audio/" + musicFile);
 
-    currentMusicAudio.volume = isMuted ? 0 : 0.40;
+    currentMusicAudio.volume = 0.40;
+    currentMusicAudio.muted = isMuted;
 
     currentMusicAudio.addEventListener("ended", () => {
         playMusic();
