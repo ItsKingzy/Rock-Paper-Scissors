@@ -15,16 +15,23 @@ const scissors = document.querySelector("#scissors");
 // Query scoreboard div
 const scoreboard = document.querySelector("#scoreboard");
 
+// Query targetScore
+const targetScore = document.querySelector("#target-score");
+
 // Results div for one round
 const roundResults = document.querySelector("#round-results");
+
+// Result of hands played
+const winner = document.querySelector("#winner");
 
 // Score for both human and computer
 const updateHumanScore = document.querySelector("#player-scoreboard .score");
 const updateComputerScore = document.querySelector("#computer-scoreboard .score");
 
-// Hide reset button until game is over
+// Query reset message (is winner or not)
+const resetMessage = document.querySelector("#reset-message");
+// Query reset button
 const resetButton = document.querySelector("#reset-button");
-resetButton.style.visibility = "hidden";
 // When reset button is clicked
 resetButton.addEventListener("click", () => {
     startMusicOnClick();
@@ -94,13 +101,19 @@ function getHumanChoice() {
 // Play a Round
 function playRound(humanChoice, computerChoice) {
     // Consts for prompt instead of repeating code
-    const win = `You win! ${humanChoice} beats ${computerChoice}`;
-    const lose = `You lose! ${computerChoice} beats ${humanChoice}`;
+    const win = `* ${humanChoice} beats ${computerChoice} *`;
+    const lose = `* ${computerChoice} beats ${humanChoice} *`;
+
+    // Display player choices on screen
+    const displayHumanChoice = document.querySelector("#human-choice .choice");
+    displayHumanChoice.textContent = humanChoice;
+    const displayComputerChoice = document.querySelector("#computer-choice .choice");
+    displayComputerChoice.textContent = computerChoice;
     
     // If it's a draw
     if (humanChoice === computerChoice) {
         console.log("Draw, please play again");
-        roundResults.textContent = "Draw, please play again";
+        winner.textContent = "Draw, please play again";
         return
     }
 
@@ -109,14 +122,14 @@ function playRound(humanChoice, computerChoice) {
         // Win condition first
         if (computerChoice === "scissors") {
             console.log(win);
-            roundResults.textContent = win;
+            winner.textContent = win;
             humanScore++; 
             return
         // Lose condition second
         } else {
             console.log(computerChoice);
             console.log(lose);
-            roundResults.textContent = lose;
+            winner.textContent = lose;
             computerScore++;
             return
         }
@@ -127,13 +140,13 @@ function playRound(humanChoice, computerChoice) {
         // Win condition first
         if (computerChoice === "rock") {
             console.log(win);
-            roundResults.textContent = win;
+            winner.textContent = win;
             humanScore++; 
             return
         // Lose condition second
         } else {
             console.log(lose);
-            roundResults.textContent = lose;
+            winner.textContent = lose;
             computerScore++;
             return
         }
@@ -144,13 +157,13 @@ function playRound(humanChoice, computerChoice) {
         // Win condition first
         if (computerChoice === "paper") {
             console.log(win);
-            roundResults.textContent = win;
+            winner.textContent = win;
             humanScore++; 
             return
         // Lose condition second
         } else {
             console.log(lose);
-            roundResults.textContent = lose;
+            winner.textContent = lose;
             computerScore++;
             return
         }
@@ -176,15 +189,14 @@ function updateScoreDisplay() {
     if (humanScore >= 3 || computerScore >= 3) {
         if (humanScore > computerScore) {
             console.log("You Won :)");
-            roundResults.textContent = "You Won :D"
+            resetMessage.textContent = "You Won :D"
         } else {
             console.log("You Lost :(");
-            roundResults.textContent = "You Lost ;-;"
+            resetMessage.textContent = "You Lost ;-;"
         }
-
-        // Show reset button
-        resetButton.style.visibility = "visible";
-        // Reset game if button is clicked
+        
+        // Show reset menu
+        showResetMenu();
     }
 }
 
@@ -211,6 +223,10 @@ rock.addEventListener("click", (event) => {
     if (humanScore >= 3 || computerScore >= 3) {
         event.preventDefault()
     } else {
+        // Display current round results
+        if (!gameInProgress) {
+            showRoundResults();
+        }
         // Start game with human choice as rock
         playGame("rock");
     }
@@ -222,6 +238,10 @@ paper.addEventListener("click", (event) => {
     if (humanScore >= 3 || computerScore >= 3) {
         event.preventDefault()
     } else {
+        // Display current round results
+        if (!gameInProgress) {
+            showRoundResults();
+        }
         // Start game with human choice as paper
         playGame("paper");
     }
@@ -233,6 +253,10 @@ scissors.addEventListener("click", (event) => {
     if (humanScore >= 3 || computerScore >= 3) {
         event.preventDefault()
     } else {
+        // Display current round results
+        if (!gameInProgress) {
+            showRoundResults();
+        }
         // Start game with human choice as scissors
         playGame("scissors");
     }
@@ -240,12 +264,19 @@ scissors.addEventListener("click", (event) => {
 
 
 function resetGame() {
+    // Reset scores
     humanScore = 0;
     computerScore = 0;
-    roundResults.textContent = "";
-    updateHumanScore.textContent = humanScore;
-    updateComputerScore.textContent = computerScore;
-    resetButton.style.visibility = "hidden";
+    // Hide display of reset message & button
+    resetMessage.style.display = "none";
+    resetButton.style.display = "none";
+    // Reset display of score to "0/3"
+    updateHumanScore.textContent = humanScore + "/3";
+    updateComputerScore.textContent = computerScore + "/3";
+    // Show target-score
+    targetScore.style.display = "flex";
+    // Reset game in progress
+    gameInProgress = false;
 }
 
 
@@ -315,3 +346,29 @@ function startMusicOnClick() {
     }
 }
 document.addEventListener("click", startMusicOnClick, {once: true});
+
+
+let gameInProgress = false;
+// Hide target score, show round results
+function showRoundResults() {
+    // Hide target score
+    targetScore.style.display = "none";
+
+    // Show the round-results
+    roundResults.style.display = "flex";
+
+    // Update gameInProgress
+    gameInProgress = true;
+}
+
+
+// Hide game status, show reset game
+function showResetMenu() {
+    // Hide round results menu
+    roundResults.style.display = "none";
+
+    // Show reset menu
+    resetMessage.style.display = "flex";
+    resetButton.style.display = "flex";
+
+}

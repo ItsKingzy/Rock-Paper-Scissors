@@ -84,6 +84,16 @@ body {
     width: 100%;
 }
 
+#game-state #target-score {
+    display: flex;
+    flex: 1 1 auto;
+    padding-top: 84px;
+    /* Makes position over the image */
+    position: absolute;
+    font-weight: 600;
+    font-size: 40px;
+}
+
 /* Inspiration: https://codepen.io/joexmdq/pen/EOMLzg */
 #reset-button img {
     /* Used to remove line below button */
@@ -115,22 +125,50 @@ body {
     display: block;
 }
 
-#game-state #oak-sign-header {
-    display: flex;
-    flex: 1 1 auto;
-    padding-top: 32px;
-    /* Makes position over the image */
-    position: absolute;
-    font-weight: 600;
-    font-size: 40px;
-}
-
 #game-state #round-results {
-    width: 300px;
-    text-align: center;
-    transform: translateY(-150px);
+    /* Position's text over the oak sign */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
 }
 
+#game-state #player-choices {
+    display: flex;
+    gap: 72px;
+}
+
+#human-choice,
+#computer-choice {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice-title,
+.choice {
+    margin: 0;
+}
+
+.choice {
+    padding-top: 8px;
+}
+
+.choice-title {
+    text-decoration: underline;
+    text-decoration-thickness: 16%;
+    padding-top: 24px;
+}
+
+#winner {
+    text-align: center;
+    padding-top: 44px;
+}
+
+#reset-message {
+    position: absolute;
+    padding-top: 58px;
+}
 
 
 #scoreboard {

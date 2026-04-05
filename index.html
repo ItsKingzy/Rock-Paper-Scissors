@@ -37,9 +37,27 @@
             <div id="all-stats">
                 <div id="game-state">
                     <img src="./img/oak-sign-2.png" alt="Scoreboard">
-                    <div id="oak-sign-header">First to 3, wins!</div>
-                    <div id="round-results"></div>
-                    <button id="reset-button">
+                    
+                    <div id="target-score">First to 3, wins!</div>
+
+                    <div id="round-results" style="display: none;">
+                        <div id="player-choices">
+                            <div id="human-choice">
+                                <p class="choice-title">Your Choice</p>
+                                <p class="choice"></p>
+                            </div>
+
+                            <div id="computer-choice">
+                                <p class="choice-title">AI's Choice</p>
+                                <p class="choice"></p>
+                            </div>
+                        </div>
+                        
+                        <div id="winner"></div>
+                    </div>
+
+                    <div id="reset-message"></div>
+                    <button id="reset-button" style="display: none;">
                         <img class="reset-no-hover" src="./img/reset-no-hover.png" alt="Reset button when not hovering over button">
                         <img class="reset-hover" src="./img/reset-hover.png" alt="Reset button when hovering over button">
                     </button>
@@ -49,7 +67,7 @@
                     <div id="player-scoreboard">
                         <img src="./img/score-sign.png" alt="">
                         <div class="stats">
-                            <div class="player">You</div>
+                            <div class="human">You</div>
                             <div class="score">0/3</div>
                         </div>
                     </div>
