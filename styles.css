@@ -204,6 +204,10 @@ body {
     padding: 64px;
 }
 
+#name {
+    text-align: center;
+}
+
 #github {
     display: flex;
     gap: 10px;
