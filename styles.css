@@ -85,13 +85,25 @@ body {
 }
 
 #game-state #target-score {
-    display: flex;
-    flex: 1 1 auto;
+    display: inline-block;
     padding-top: 84px;
     /* Makes position over the image */
     position: absolute;
     font-weight: 600;
     font-size: 40px;
+    animation: pulse-effect 4s infinite ease-in-out;
+}
+
+/* Animate the pulse effect */
+@keyframes pulse-effect {
+    0%, 100% {
+        /* Original size */
+        transform: scale(1);
+    }
+    50% {
+        /* expand to 120% */
+        transform: scale(1.2);
+    }
 }
 
 /* Inspiration: https://codepen.io/joexmdq/pen/EOMLzg */
